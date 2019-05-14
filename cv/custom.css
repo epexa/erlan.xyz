@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html {
   position: relative;
 }
@@ -15,6 +20,8 @@ body {
 }
 
 .container {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
   display: block;
   padding-right: 15px;
   padding-left: 15px;
@@ -143,4 +150,72 @@ nav a:hover img {
   border: 1px solid #fdd54c;
   vertical-align: middle;
   margin-top: -4px;
+}
+
+.col-4, .col-8 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-4 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 33.3333333333%;
+  flex: 0 0 33.3333333333%;
+  max-width: 33.3333333333%;
+}
+
+.col-8 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 66.6666666667%;
+  flex: 0 0 66.6666666667%;
+  max-width: 66.6666666667%;
+}
+
+#projects {
+  margin-top: 1rem;
+}
+
+#projects .row {
+  margin-bottom: 3rem;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+table td {
+  padding: .75rem;
+  vertical-align: top;
+}
+table tr:hover {
+  color: #fff;
+  background-color: rgba(255,255,255,.075);
+}
+table tr td:nth-child(2) {
+  text-align: right;
+}
+
+.exp, .adv, .int, .nov {
+  color: #fff;
+  padding: 0.5rem;
+}
+.exp {
+  background: #dd0000;
+}
+.adv {
+  background: #f7961d;
+}
+.int {
+  background: #9c0;
+}
+.nov {
+  background: #aec4e1;
+}
+
+#skills-labels td {
+  text-align: left;
 }
