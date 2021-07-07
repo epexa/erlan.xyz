@@ -23,13 +23,14 @@ body {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   display: block;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
   /* margin-top: 40px; */
   padding: 30px;
+
   width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (min-width: 1200px) {
@@ -40,27 +41,25 @@ body {
 }
 
 .row {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -.5);
+  margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-top: var(--bs-gutter-y);
 }
 
 .col {
-  -ms-flex-preferred-size: 0;
-  flex-basis: 0;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  max-width: 100%;
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 100%;
+  flex: 1 0 0%;
 }
 
 footer {
@@ -104,7 +103,7 @@ img {
   -webkit-filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(50deg) saturate(1000%) contrast(0.8);
   filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(50deg) saturate(1000%) contrast(0.8);
   transition: 1s;
-  width: 100%;
+  max-width: 100%;
 }
 img:hover {
   filter: none;
@@ -187,6 +186,9 @@ table {
   margin-bottom: 1rem;
   border-collapse: collapse;
 }
+table tr.sup {
+  font-size: 14px;
+}
 table td {
   padding: .75rem;
   vertical-align: top;
@@ -218,4 +220,19 @@ table tr td:nth-child(2) {
 
 #skills-labels td {
   text-align: left;
+}
+
+@media (min-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+
+  .g-md-1 {
+    --bs-gutter-x: 0.25rem;
+  }
+
+  .g-md-1 {
+    --bs-gutter-y: 0.25rem;
+  }
 }
